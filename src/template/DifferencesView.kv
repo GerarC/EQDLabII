@@ -1,0 +1,56 @@
+<DifferencesView@Screen>:
+    x_values_string: x_values_input.text
+    fx_values_string: fx_values_input.text
+    name: 'divided_differences'
+    MDBoxLayout:
+        spacing: 20
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Diferencias Divididas'
+        MDGridLayout:
+            size_hint: (1, 0.25)
+            spacing: (10, 10)
+            padding: 10
+            cols: 2
+            MDLabel:
+                text: 'Valores en x: '
+                halign: 'center'
+                size_hint: (0.25, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.6, 1)
+                id: x_values_input
+                font_size: '20sp'
+            MDLabel:
+                text: 'Valores para f(x): '
+                halign: 'center'
+                size_hint: (0.3, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.6, 1)
+                id: fx_values_input
+                font_size: '20sp'
+        MDLabel:
+            text: 'Separa los valores por coma por favor,\ny que tengan el mismo número de elementos'
+            halign: 'center'
+            font_size: '16sp'
+            size_hint: (1, 0.1)
+        MDBoxLayout:
+            padding: (30, 10)
+            size_hint: (1, 0.15)
+            MDRaisedButton:
+                #pos_hint = {'x':0.75, 'y':0.5, 'left':1, 'rigt':1}
+                text: "Calculate"
+                halign: 'center'
+                size_hint: (1,1)
+                on_press: root.on_calculate_pressed()
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 0.7)
+            padding: (30, 10)
+            MDLabel:
+                text: root.polynome_string
+                halign: 'center'
+                font_size: '16sp'
+                size_hint: (1, 0.1)

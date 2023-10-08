@@ -1,0 +1,95 @@
+<PuntosView@Screen>:
+    function_string: function_input.text
+    x_string: x_value_input.text
+    h_string: h_value_input.text
+    name: 'estimated_per_points'
+    MDBoxLayout:
+        spacing: 20
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Estimación de 2, 3 y 5 puntos'
+        MDGridLayout:
+            size_hint: (1, 0.15)
+            spacing: (10, 0)
+            padding: 10
+            cols: 3
+            MDLabel:
+                text: 'Función: '
+                halign: 'center'
+                size_hint: (0.25, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.6, 1)
+                id: function_input
+                font_size: '20sp'
+        MDGridLayout:
+            size_hint: (1, 0.15)
+            cols: 5
+            padding: 10
+            spacing: (10, 0)
+            MDLabel:
+                text: 'X:'
+                size_hint: (0.05, 1)
+                font_size: '20sp'
+                margin: (10, 0)
+            TextInput:
+                size_hint: (0.3, 1)
+                id: x_value_input
+                font_size: '20sp'
+            MDLabel:
+                text: 'H:'
+                size_hint: (0.05, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.3, 1)
+                id: h_value_input
+                font_size: '20sp'
+            MDRaisedButton:
+                text: "Calculate"
+                size_hint: (0.3, 1)
+                on_press: root.on_calculate_pressed()
+
+        MDLabel:
+            text: '[b]Fórmula de 2 puntos[/b]'
+            size_hint: (1, 0.05)
+            font_size: '20sp'
+            halign: 'center'
+            markup: True
+        MDBoxLayout:
+            size_hint: (1, 0.25)
+            orientation: 'vertical'
+            MDLabel:
+                halign: 'center'
+                font_size: '18sp'
+                size_hint: (1, 0.05)
+                text: root.two_points_res
+
+        MDLabel:
+            text: '[b]Fórmula de 3 puntos[/b]'
+            size_hint: (1, 0.05)
+            font_size: '20sp'
+            halign: 'center'
+            markup: True
+        MDBoxLayout:
+            size_hint: (1, 0.25)
+            orientation: 'vertical'
+            MDLabel:
+                halign: 'center'
+                font_size: '18sp'
+                size_hint: (1, 0.05)
+                text: root.three_points_res
+
+        MDLabel:
+            text: '[b]Fórmula de 5 puntos[/b]'
+            size_hint: (1, 0.05)
+            font_size: '20sp'
+            halign: 'center'
+            markup: True
+        MDBoxLayout:
+            size_hint: (1, 0.25)
+            orientation: 'vertical'
+            MDLabel:
+                halign: 'center'
+                font_size: '18sp'
+                size_hint: (1, 0.05)
+                text: root.five_points_res

@@ -1,0 +1,37 @@
+<MainView>
+    screen_manager: screen_manager
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Métodos Númericos'
+
+        MDTabs:
+            id: method_tabs
+            on_tab_switch: root.on_tab_switch(*args)
+            size_hint_y: None
+            height: '48dp'
+            tab_indicator: False
+            MenuTab:
+                icon: 'function-variant'
+                title: 'Puntos'
+            MenuTab:
+                icon: 'square-root'
+                title: 'Newton-Raphson'
+            MenuTab:
+                icon: 'function-variant'
+                title: 'Diferencias'
+            MenuTab:
+                icon: 'math-integral'
+                title: 'Trapecio'
+            MenuTab:
+                icon: 'math-integral'
+                title: 'Newton-Cotes'
+        #: import NoTransition kivy.uix.screenmanager.NoTransition
+        MDScreenManager:
+            transition: NoTransition()
+            id: screen_manager
+            PuntosView:
+            NewtonView:
+            DifferencesView:
+            TrapezoidView:
+            NewtonCotesView:

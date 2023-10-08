@@ -1,0 +1,108 @@
+<TrapezoidView@Screen>:
+    function_string: function_input.text
+    low_limit_string: low_limit_input.text
+    upp_limit_string: upp_limit_input.text
+    splits_string: splits_input.text
+    epsilon_string: epsilon_input.text
+    name: 'composed_trapezoid'
+    MDBoxLayout:
+        spacing: 20
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Estimación por Regla del Trapecio compuesto'
+        MDGridLayout:
+            size_hint: (1, 0.18)
+            spacing: (10, 0)
+            padding: 10
+            cols: 3
+            MDLabel:
+                text: 'Función: '
+                halign: 'center'
+                size_hint: (0.25, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.6, 1)
+                id: function_input
+                font_size: '20sp'
+        MDGridLayout:
+            size_hint: (1, 0.35)
+            cols: 4
+            padding: 10
+            spacing: (10, 10)
+            MDLabel:
+                text: 'Límite Inf:'
+                halign: 'center'
+                size_hint: (0.2, 1)
+                font_size: '20sp'
+                margin: (10, 0)
+            TextInput:
+                size_hint: (0.3, 1)
+                id: low_limit_input
+                font_size: '20sp'
+            MDLabel:
+                text: 'Límite Sup:'
+                halign: 'center'
+                size_hint: (0.2, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.3, 1)
+                id: upp_limit_input
+                font_size: '20sp'
+            MDLabel:
+                text: 'Epsilon:'
+                halign: 'center'
+                size_hint: (0.3, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.3, 1)
+                id: epsilon_input
+                font_size: '20sp'
+            MDLabel:
+                text: 'Intervalos:'
+                halign: 'center'
+                size_hint: (0.3, 1)
+                font_size: '20sp'
+            TextInput:
+                size_hint: (0.3, 1)
+                id: splits_input
+                font_size: '20sp'
+        MDBoxLayout:
+            padding: (30, 10)
+            size_hint: (1, 0.2)
+            MDRaisedButton:
+                text: "Calculate"
+                halign: 'center'
+                size_hint: (1,1)
+                on_press: root.on_calculate_pressed()
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            MDLabel:
+                text: '[b]Resultado por trapecio compuesto[/b]'
+                size_hint: (1, 0.05)
+                font_size: '20sp'
+                halign: 'center'
+                markup: True
+            MDBoxLayout:
+                size_hint: (1, 0.25)
+                orientation: 'vertical'
+                MDLabel:
+                    halign: 'center'
+                    font_size: '18sp'
+                    size_hint: (1, 0.05)
+                    text: root.composed_integral_estimation_string
+            MDLabel:
+                text: '[b]Resultado por Regla de trapecio[/b]'
+                size_hint: (1, 0.05)
+                font_size: '20sp'
+                halign: 'center'
+                markup: True
+            MDBoxLayout:
+                size_hint: (1, 0.25)
+                orientation: 'vertical'
+                MDLabel:
+                    halign: 'center'
+                    font_size: '18sp'
+                    size_hint: (1, 0.05)
+                    text: root.integral_estimation_string
