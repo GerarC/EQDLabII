@@ -15,10 +15,10 @@ class MainApp(MDApp):
     screen_manager = ScreenManager()
 
     def build(self):
-        self.theme_cls.primary_palette = 'BlueGray'
+        self.theme_cls.primary_palette = 'DeepPurple'
         self.theme_cls.accent_palette = 'Amber'
         self.theme_cls.material_style = 'M3'
-        # self.theme_cls.theme_style = 'Light'
+        self.theme_cls.theme_style = 'Dark'
         main_view = MainView(name='MainView')
         main_view.on_enter()
         self.screen_manager.add_widget(main_view)
