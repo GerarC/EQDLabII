@@ -20,8 +20,8 @@ y los exponenciales deben ponerse como doble asterisco '**'.
     
 Ejemplos:
  - cos(x) - x
- - 2**ln(x)
- - 1 - 2*x + 3*x**2 - 5*x**3
+ - 2\*\*ln(x)
+ - 1 - 2\*x + 3\*x\*\*2 - 5\*x\*\*3
 
 
 ## Instalación
