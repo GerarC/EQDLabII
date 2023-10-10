@@ -3,7 +3,16 @@ from sympy.functions import Abs
 from sympy.core import diff
 from sympy.abc import x
 
-def calculate_two_points(func, x_val, h_val):
+def calculate_two_points(func, x_val, h_val) -> tuple[float, float]:
+    """ Calculates a derivative estimation using the method of the two points
+
+    Args:   
+        func (Sympy expr): Function to obtain the value of.
+        x_val (float): value in x of the func.
+        h_val (val): delta's value.
+    Return:
+        tuple[float, float]: the estimated value and the error
+    """
     point_one = func.subs({x: x_val})
     point_two = func.subs({x: x_val + h_val})
     result = (point_two - point_one)/h_val
@@ -13,6 +22,15 @@ def calculate_two_points(func, x_val, h_val):
         
 
 def calculate_three_points(func, x_val, h_val):
+    """Calculates a derivative estimation using the method of the three points
+
+    Args:   
+        func (Sympy expr): Function to obtain the value of.
+        x_val (float): value in x of the func.
+        h_val (val): delta's value.
+    Return:
+        tuple[float, float]: the estimated value and the error
+    """
     point_one = func.subs({x: x_val - h_val})
     point_two = func.subs({x: x_val + h_val})
     result = float((point_two - point_one)/(2*h_val))
@@ -20,6 +38,15 @@ def calculate_three_points(func, x_val, h_val):
     return round(result, 7), round(error, 7)
 
 def calculate_five_points(func, x_val, h_val):
+    """Calculates a derivative estimation using the method of the five points
+
+    Args:   
+        func (Sympy expr): Function to obtain the value of.
+        x_val (float): value in x of the func.
+        h_val (val): delta's value.
+    Return:
+        tuple[float, float]: the estimated value and the error
+    """
     val_1= func.subs({x: x_val - 2*h_val})
     val_2 = 8*func.subs({x: x_val - h_val})
     val_3 = 8*func.subs({x: x_val + h_val})
@@ -31,6 +58,16 @@ def calculate_five_points(func, x_val, h_val):
 
 
 def newton_raphson(func, x_0, tol=1e-4, max_iteration=100):
+    """Estimates the next root of the expression between a tolerance value.
+
+    Args:
+        func (Sympy expr): Function to operate with.
+        x_0 (float): Next value to the root.
+        tol (float): Tolerance.
+        max_iteration: Max number of iterations.
+    Returns:
+        float: the next root of the function.
+    """
     derivative = diff(func, x)
     prev = None
     for i in range(max_iteration):
@@ -46,6 +83,14 @@ def newton_raphson(func, x_0, tol=1e-4, max_iteration=100):
     return round(float(x_0), 6), max_iteration
 
 def divided_differences(x_data, fx_data):
+    """Creates a table with the dividide differences of the data.
+
+    Args:
+        x_data list[float]: Points in X.
+        fx_data list[float]: Points of Fx.
+    Returns:
+        dd_table (list): Dividide differences.
+    """
     n = len(x_data)
     dd_table = []
     for _ in range(n): dd_table.append([None for _ in range(n)])
@@ -59,6 +104,14 @@ def divided_differences(x_data, fx_data):
     return dd_table
 
 def calculate_polynomial_coefficients(x_data, dd_table):
+    """Calculates the polynome using dividide differences:
+
+    Args:
+        x_data list[float]: Points in X.
+        dd_table (list): Dividide differences.
+    Returns:
+        coeffiecients (Sympy Expr): the obtained polynome.
+    """
     n = len(x_data)
     coefficients = [dd_table[0][0]]
 
@@ -72,11 +125,34 @@ def calculate_polynomial_coefficients(x_data, dd_table):
     return coefficients
 
 def trapezoid_rule(func, a, b, epsilon, is_cotes: bool = False):
+    """Estimates the Value of an integral using the trapezoid rule.
+
+    Args:
+        func (Sympy expr): Function to obtain the value of.
+        a (float): lower limit.
+        b (float): upper limit.
+        interval (int): num of intervals used to calculate the integral.
+        epsilon (float): a number to calculate the error.
+        is_cotes (bool): Boolean to know if it comes from newton-cotes view
+    Returns:
+        integral_estimation (float): the obtained value of the integral.
+    """
     integral_approximation = ((b-a)*(func.subs(x, a) + func.subs(x, b)))/2
     error = (((b-a)**3)/12)*diff(diff(func, x), x).subs(x, epsilon)
     return integral_approximation - error if is_cotes else (integral_approximation, error)
 
 def composed_trapezoid_rule(func, a, b, interval, epsilon):
+    """Estimates the Value of an integral using the composed trapezoid.
+
+    Args:
+        func (Sympy expr): Function to obtain the value of.
+        a (float): lower limit.
+        b (float): upper limit.
+        interval (int): num of intervals used to calculate the integral.
+        epsilon (float): a number to calculate the error.
+    Returns:
+        integral_estimation (float): the obtained value of the integral.
+    """
     h = (b - a) / interval
     x_values = [a + i * h for i in range(interval + 1)]
     integral_approximation = 0
@@ -90,6 +166,17 @@ def composed_trapezoid_rule(func, a, b, interval, epsilon):
     return integral_approximation
 
 def simpson_rule(func, a, b, epsilon):
+    """Estimates the Value of an integral using the Simpson rule.
+
+    Args:
+        func (Sympy expr): Function to obtain the value of.
+        a (float): lower limit.
+        b (float): upper limit.
+        interval (int): num of intervals used to calculate the integral.
+        epsilon (float): a number to calculate the error.
+    Returns:
+        integral_estimation (float): the obtained value of the integral.
+    """
     h = (b - a) / 2
     fx0 = func.subs(x, a)
     fx1 = func.subs(x, a + h)
@@ -100,6 +187,17 @@ def simpson_rule(func, a, b, epsilon):
     return integral_estimation
 
 def three_eight_simpson_rule(func, a, b, epsilon):
+    """Estimates the Value of an integral using the 3/8 Simpson Rule.
+
+    Args:
+        func (Sympy expr): Function to obtain the value of.
+        a (float): lower limit.
+        b (float): upper limit.
+        interval (int): num of intervals used to calculate the integral.
+        epsilon (float): a number to calculate the error.
+    Returns:
+        integral_estimation (float): the obtained value of the integral.
+    """
     h = (b - a) / 3
     fx0 = func.subs(x, a)
     fx1 = func.subs(x, a + h)
