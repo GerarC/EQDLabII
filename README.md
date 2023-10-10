@@ -33,15 +33,20 @@ Para crear el entorno virtual unicamente es necesario ejecutar el siguiente coma
 python -m venv venv
 ~~~
     
-Activarlo con:
+Activarlo en linux con:
 ~~~ bash
 source ./venv/bin/activate
+~~~
+
+o en Windows con:
+~~~ bash
+.\venv\Scripts\activate
 ~~~
     
 Luego de creado y activado el entorno virtual por primera vez,
 se tienen que instalar las dependencias:
 ~~~ bash
-pytohn -m pip -r requirements.txt
+python -m pip -r requirements.txt
 ~~~
     
 Hecho todo lo anterior ya se puede abrir la aplicación:
