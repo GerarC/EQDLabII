@@ -35,6 +35,3 @@ class TrapezoidView(Screen):
         except:
             self.composed_integral_estimation_string = "something is going wrong operating the function with this parameters."
             return
-
-
-

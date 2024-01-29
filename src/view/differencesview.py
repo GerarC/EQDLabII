@@ -29,7 +29,3 @@ class DifferencesView(Screen):
             if sep == "": sep = ' + '
             
         self.polynome_string = result
-        print(dd_table, polynome, sep='\n')
-
-
-

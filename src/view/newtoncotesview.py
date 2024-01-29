@@ -39,6 +39,3 @@ class NewtonCotesView(Screen):
         except:
             self.trapezoid_rule_string = "something is going wrong operating the function with this parameters."
             return
-
-
-

@@ -41,4 +41,3 @@ class PuntosView(Screen):
         self.two_points_res = f'El valor estimado de f\'({x_val}) es {two_res[0]}\nEl error estimado es de {two_res[1]}'
         self.three_points_res = f'El valor estimado de f\'({x_val}) es {three_res[0]}\nEl error estimado es de {three_res[1]}'
         self.five_points_res = f'El valor estimado de f\'({x_val}) es {five_res[0]}\nEl error estimado es de {five_res[1]}'
-

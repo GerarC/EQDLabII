@@ -1,4 +1,5 @@
 # EQDLabII
+[Link a este repositorio](https://github.com/GerarC/EQDLabII)
 Segundo Laboratorio para la materia de Ecuaciones Diferenciales
 
 ## Descripción
@@ -14,7 +15,9 @@ Los implementados en este código fueron:
 
 ## Formato de de las funciones
 
-El formato es muy simple, solo usar parentesis,
+El formato es muy simple, solo usar parentesis, no llaves ni corchetes.
+todas las funciones deben ser escritas en minusculas como `sin`, `cos` o `ln`.
+El número de euler es una `E` mayuscula y π es `pi`.
 todas las multiplicaciones deben de ser explicitas usando '*',
 y los exponenciales deben ponerse como doble asterisco '**'.
     
@@ -24,7 +27,17 @@ Ejemplos:
  - 1 - 2\*x + 3\*x\*\*2 - 5\*x\*\*3
 
 
-## Instalación
+## Instalación de las librerias necesarias.
+
+Antes de intentar instalar las librerias y ejecutar por consola,
+hay un ejecutable .exe en la carpeta *build*
+puesto que quise hacer todo lo más fácil posible,
+pero mi computador me dice que la aplicación es un virus a pesar
+de que yo mismo programé la aplicación,
+tal vez por el método que utilicé para hacer el .exe.
+Si te aparece lo mismo entoces toca abrir una consola en la carpeta
+de este repositorio y seguir los siguientes pasos:    
+     
 Para ejecutar este proyecto se necesita activar un entorno virtual,
 instalar los paquetes necesarios y finalmete ejecutar el *src/main.py*
     

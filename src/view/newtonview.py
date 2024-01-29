@@ -32,7 +32,3 @@ class NewtonView(Screen):
             self.result_newton_raphson = f'El resultado no fue encontrado en {max_val} iteraciones\nel último resultado estimado fue {result[0]}.'
         else:
             self.result_newton_raphson = f'El resultado estimado hallado en {result[1]} iteraciones\nfue {result[0]}.'
-            
-
-    
-
